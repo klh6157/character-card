@@ -5,8 +5,9 @@ const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
 
 class MyCard extends LitElement {
   static properties = {
-    header: { type: String },
+    header: { type: String, attribute: 'My app' },
     image: { type: String},
+    btn: {type: Boolean, Reflect: true},
   }
 
   static styles = css`
@@ -32,7 +33,7 @@ h2{
 p{
   text-align: center;
   font-weight: bold;
-  padding: 1%;
+  padding: 20px;
   
 }
 .btn {
@@ -104,6 +105,7 @@ p{
     super();
     this.header = 'My app';
     this.image = "https://pm1.narvii.com/5770/c91ff789cb31cff4d78b367fdc4f933ccde1a26d_hq.jpg"
+    this.btn = 'btn';
   }
 
   render() {
