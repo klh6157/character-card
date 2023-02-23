@@ -118,7 +118,6 @@ p{
   <button class="color">Color Stuff</button>
   <button class="heading">Heading Stuff</button> -->
   <meme-maker alt="Cat stalking a small toy" image-url="${this.image}" top-text="Shiro Emiya" bottom-text="This guy is dead"></meme-maker>
-  <!-- <img src="https://pm1.narvii.com/5770/c91ff789cb31cff4d78b367fdc4f933ccde1a26d_hq.jpg" alt="image" class="center"> -->
        <div class="information">
         <slot></slot>
          <p>Shiro Emiya is a servant of the fate and the main character of the anime. The anime is about a holy grail war where masters summons servants to fight in battle. There are usually seven masters per holy grail war that fight in battle. Winning the holy grail war allows the winner to get one wish granted.</p>

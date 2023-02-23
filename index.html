@@ -11,7 +11,6 @@
     html,
 .characterCard{
   text-align: center;
-  background: red;
   max-width: 400px;
  
 }
@@ -107,8 +106,11 @@ p{
   <button class="delete">Delete Stuff</button>
   <button class="color">Color Stuff</button>
   <button class="heading">Heading Stuff</button>
-  <my-card></my-card>
-
+  
+  <div id="cardContainer">
+    <my-card></my-card>
+  </div>
+  
   <script type="module" src="./src/my-card.js"></script>
   <script>
     const hideP =  document.querySelector(".information");
@@ -123,12 +125,12 @@ p{
           </script>
   <script>
 document.querySelector('.add').addEventListener('click', function(e) {
-  const duplicate = document.querySelector('my-card').shadowRoot.querySelector('.characterCard').cloneNode(true);
-  document.body.appendChild(duplicate);
+  const duplicate = document.querySelector('my-card').cloneNode(true);
+  document.querySelector('#cardContainer').appendChild(duplicate)
   
 });
 document.querySelector('.color').addEventListener('click', function(e){
-  const colors = document.querySelector('my-card').shadowRoot.querySelector('.characterCard');
+  const colors = document.querySelector('my-card');
   console.log(colors);
     if (colors.style.backgroundColor === 'red'){
       colors.style.backgroundColor = 'yellow';
@@ -140,8 +142,8 @@ document.querySelector('.color').addEventListener('click', function(e){
 document.querySelector('.delete').addEventListener('click', function(e){
  let deletion = confirm('Do you really really really really really really want to?');
   if (deletion){
-    if (document.querySelector('.characterCard:last-child') !== document.querySelector('.characterCard')){
-      document.querySelector('.characterCard:last-child').remove();
+    if (document.querySelector('#cardContainer my-card:last-child') !== document.querySelector('my-card')){
+      document.querySelector('#cardContainer my-card:last-child').remove();
     }else{
       alert("hehe xd")
     }
