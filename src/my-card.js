@@ -11,7 +11,7 @@ class MyCard extends LitElement {
   }
 
   static styles = css`
-    .characterCard{
+.characterCard{
   text-align: center;
   background-color: red;
   max-width: 400px;
@@ -112,11 +112,11 @@ p{
     return html`
       <div class="characterCard">
   <h2>Fate/Stay Night: Unlimited Blade Works</h2>
-  <button class="btn" onclick="hideText()">Details</button>
+  <!-- <button class="btn" onclick="hideText()">Details</button>
   <button class="add">Add Stuff</button>
   <button class="delete">Delete Stuff</button>
   <button class="color">Color Stuff</button>
-  <button class="heading">Heading Stuff</button>
+  <button class="heading">Heading Stuff</button> -->
   <meme-maker alt="Cat stalking a small toy" image-url="${this.image}" top-text="Shiro Emiya" bottom-text="This guy is dead"></meme-maker>
   <!-- <img src="https://pm1.narvii.com/5770/c91ff789cb31cff4d78b367fdc4f933ccde1a26d_hq.jpg" alt="image" class="center"> -->
        <div class="information">
@@ -133,41 +133,6 @@ p{
      }
    };
          </script>
-         <script>
-         document.querySelector('.add').addEventListener('click', function(e) {
-  const duplicate = document.querySelector('.characterCard').cloneNode(true);
-  document.body.appendChild(duplicate);
-  
-});
-document.querySelector('.color').addEventListener('click', function(e){
-  const colors = document.querySelector('.characterCard');
-  document.querySelectorAll('.characterCard').forEach((item, index) =>{
-    if (!item.classList.contains('basic')){
-      item.classList.add('basic');
-    }else{
-      item.classList.remove('basic');
-    }
-  })
-  
-  
-})
-document.querySelector('.delete').addEventListener('click', function(e){
- let deletion = confirm('Do you really really really really really really want to?');
-  if (deletion){
-    if (document.querySelector('.characterCard:last-child') !== document.querySelector('.characterCard')){
-      document.querySelector('.characterCard:last-child').remove();
-    }else{
-      alert("hehe xd")
-    }
-  }
-});
-document.querySelector('.heading').addEventListener('click', function(e){
-  let heading = prompt("Any Namers");
-  if (heading){
-    document.querySelector('.characterCard h2').innerText = heading;
-  }
-})
-</script>
   </div>
 </div>
     `;
