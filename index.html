@@ -1,161 +1,170 @@
-<!doctype html>
-<html lang="en">
+  <!doctype html>
+  <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="Put your description here.">
-  <base href="/">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="Description" content="Put your description here.">
+    <base href="/">
 
-  <style>
-    html,
-.characterCard{
-  text-align: center;
-  max-width: 400px;
- 
-}
-.center{
-  width: 80%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-h2{
-  text-align: center;
-  font-weight: bold;
+    <style>
+      html,
+  .characterCard{
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 3);
+    text-align: center;
+    max-width: 400px;
   
-}
-
-p{
-  text-align: center;
-  font-weight: bold;
-  padding: 20px;
-  
-}
-.btn {
-  text-align: center;
-  margin: 3px;
-  padding: 3px 3px;
-  
-}
-.add{
- text-align: center;
-  margin: 3px;
-  padding: 3px 3px;
-}
-.delete{
-  text-align: center;
-  margin: 3px;
-  padding: 3px 3px;
-}
-.color{
-  text-align: center;
-  margin: 3px;
-  padding: 3px 3px;
-}
-.heading {
-  text-align: center;
-  margin: 3px;
-  padding: 3px 3px;
-  
-}
-.btn:hover{
-  background-color: cyan;
-}
-.add:hover{
-  background-color: cyan;
-}
-.delete:hover{
-  background-color: cyan;
-}
-.color:hover{
-  background-color: cyan;
-}
-.heading:hover{
-  background-color: cyan;
-}
-
-@media only screen and (max-width: 500px){
-  button{
-    display: none;
-    
   }
-}
-@media only screen and (max-width: 500px){
-  .card{
-    width: 25%;
-    height: auto;
-   
+  .center{
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
+
   h2{
-    font-size: 50px;
+    font-size: 36px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 0;
     
   }
-  p{
-    font-size: 50%;
-  }
-}
-  </style>
-  <title>my-card</title>
-</head>
 
-<body>
-  <button class="btn">Details</button>
-  <button class="add">Add Stuff</button>
-  <button class="delete">Delete Stuff</button>
-  <button class="color">Color Stuff</button>
-  <button class="heading">Heading Stuff</button>
-  
-  <div id="cardContainer">
-    <my-card></my-card>
-  </div>
-  
-  <script type="module" src="./src/my-card.js"></script>
-  <script>
-    const hideP =  document.querySelector(".information");
-    function hideText(){
-      if(hideP.style.display === "block"){
-        hideP.style.display = "none";
+  p{
+    text-align: center;
+    font-weight: bold;
+    padding: 20px;
+    font-size: 24px;
+    
+  }
+  .btn {
+    text-align: center;
+    margin: 3px;
+    padding: 3px 3px;
+    
+  }
+  .add{
+  text-align: center;
+    margin: 3px;
+    padding: 3px 3px;
+  }
+  .delete{
+    text-align: center;
+    margin: 3px;
+    padding: 3px 3px;
+  }
+  .color{
+    text-align: center;
+    margin: 3px;
+    padding: 3px 3px;
+  }
+  .heading {
+    text-align: center;
+    margin: 3px;
+    padding: 3px 3px;
+    
+  }
+
+  .btn:hover{
+    background-color: cyan;
+  }
+  .add:hover{
+    background-color: cyan;
+  }
+  .delete:hover{
+    background-color: cyan;
+  }
+  .color:hover{
+    background-color: cyan;
+  }
+  .heading:hover{
+    background-color: cyan;
+  }
+
+  @media only screen and (max-width: 500px){
+    button{
+      display: none;
+      
+    }
+  }
+  @media only screen and (max-width: 500px){
+    .card{
+      width: 25%;
+      height: auto;
+    
+    }
+    h2{
+      font-size: 50px;
+      
+    }
+    p{
+      font-size: 50%;
+    }
+  }
+    </style>
+    <title>my-card</title>
+  </head>
+
+  <body>
+    <button class="btn">Details</button>
+    <button class="add">Add Stuff</button>
+    <button class="delete">Delete Stuff</button>
+    <button class="color">Color Stuff</button>
+    <button class="heading">Heading Stuff</button>
+
+    <div id="cardContainer">
+      <my-card></my-card>
+    </div>
+    
+    <script type="module" src="./src/my-card.js"></script>
+    <script>
+      const hideP =  document.querySelector(".information");
+      function hideText(){
+        if(hideP.style.display === "block"){
+          hideP.style.display = "none";
+        }
+        else{
+          hideP.style.display = "block";
+        }
+      };
+            </script>
+            
+    <script>
+  document.querySelector('.add').addEventListener('click', function(e) {
+    const duplicate = document.querySelector('my-card').cloneNode(true);
+    document.querySelector('#cardContainer').appendChild(duplicate)
+    
+  });
+  document.querySelector('.color').addEventListener('click', function(e){
+    const colors = document.querySelector('#cardContainer');
+    const characterCard = colors.shadowRoot.querySelector('.characterCard');
+    console.log(characterCard);
+      if (colors.style.backgroundColor === 'red'){
+        colors.style.backgroundColor = 'yellow';
+      }else{
+        colors.style.backgroundColor = 'red';
       }
-      else{
-        hideP.style.display = "block";
+    });
+    
+  document.querySelector('.delete').addEventListener('click', function(e){
+  let deletion = confirm('Do you really really really really really really want to?');
+    if (deletion){
+      if (document.querySelector('#cardContainer my-card:last-child') !== document.querySelector('my-card')){
+        document.querySelector('#cardContainer my-card:last-child').remove();
+      }else{
+        alert("hehe xd")
       }
-    };
-          </script>
-  <script>
-document.querySelector('.add').addEventListener('click', function(e) {
-  const duplicate = document.querySelector('my-card').cloneNode(true);
-  document.querySelector('#cardContainer').appendChild(duplicate)
-  
-});
-document.querySelector('.color').addEventListener('click', function(e){
-  const colors = document.querySelector('my-card');
-  console.log(colors);
-    if (colors.style.backgroundColor === 'red'){
-      colors.style.backgroundColor = 'yellow';
-    }else{
-      colors.style.backgroundColor = 'red';
     }
   });
-  
-document.querySelector('.delete').addEventListener('click', function(e){
- let deletion = confirm('Do you really really really really really really want to?');
-  if (deletion){
-    if (document.querySelector('#cardContainer my-card:last-child') !== document.querySelector('my-card')){
-      document.querySelector('#cardContainer my-card:last-child').remove();
-    }else{
-      alert("hehe xd")
+  document.querySelector('.heading').addEventListener('click', function(e){
+    let heading = prompt("Any Namers");
+    if (heading){
+      document.querySelector('#cardContainer h2').innerText = heading;
     }
-  }
-});
-document.querySelector('.heading').addEventListener('click', function(e){
-  let heading = prompt("Any Namers");
-  if (heading){
-    document.querySelector('.characterCard h2').innerText = heading;
-  }
-})
-  </script>
-</body>
+  });
+    </script>
+  </body>
 
-</html>
+  </html>
