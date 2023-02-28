@@ -138,7 +138,7 @@
     
   });
   document.querySelector('.color').addEventListener('click', function(e){
-    const colors = document.querySelector('my-card').shadowRoot.querySelector('.characterCard');
+    const colors = document.querySelector('my-card').shadowRoot.querySelector('.wholeCard');
       if (colors.style.backgroundColor === 'red'){
         colors.style.backgroundColor = 'yellow';
       }else{
@@ -158,9 +158,10 @@
   });
   document.querySelector('.heading').addEventListener('click', function(e){
     let heading = prompt("Any Namers");
-    if (heading){
-      document.querySelector('#cardContainer h2').innerText = heading;
-    }
+    document.querySelector('my-card').shadowRoot.querySelector('.characterCard h2').innerText = heading;
+    // if (heading){
+    //   document.querySelector('#cardContainer h2').innerText = heading;
+    // }
   });
     </script>
   </body>

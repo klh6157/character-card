@@ -13,9 +13,17 @@ class MyCard extends LitElement {
   static styles = css`
 .characterCard{
   text-align: center;
-  background-color: red;
   max-width: 400px;
  
+}
+.wholeCard{
+  text-align: center;
+  background-color: red;
+  max-width: 400px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 0;
+  
 }
 .center{
   width: 80%;
@@ -27,6 +35,7 @@ class MyCard extends LitElement {
 h2{
   text-align: center;
   font-weight: bold;
+  font-size: 24px;
   
 }
 
@@ -110,8 +119,10 @@ p{
 
   render() {
     return html`
+    <div class="wholeCard">
       <div class="characterCard">
-  <h2>Fate/Stay Night: Unlimited Blade Works</h2>
+  <h2>Fate/Stay Night: Unlimited Blade Works</h2> 
+  </div>
   <!-- <button class="btn" onclick="hideText()">Details</button>
   <button class="add">Add Stuff</button>
   <button class="delete">Delete Stuff</button>
@@ -133,6 +144,7 @@ p{
    };
          </script>
   </div>
+</div>
 </div>
     `;
   }
