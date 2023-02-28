@@ -138,9 +138,7 @@
     
   });
   document.querySelector('.color').addEventListener('click', function(e){
-    const colors = document.querySelector('#cardContainer');
-    const characterCard = colors.shadowRoot.querySelector('.characterCard');
-    console.log(characterCard);
+    const colors = document.querySelector('my-card').shadowRoot.querySelector('.characterCard');
       if (colors.style.backgroundColor === 'red'){
         colors.style.backgroundColor = 'yellow';
       }else{
