@@ -7,10 +7,14 @@ class MyCard extends LitElement {
   static properties = {
     header: { type: String, attribute: 'My app' },
     image: { type: String},
-    btn: {type: Boolean, Reflect: true},
+    shadowColor: {type: Boolean, reflect: true, attribute: 'shadow-color'},
   }
 
   static styles = css`
+:host([shadow-color]) .characterCard{
+  box-shadow: 1px 2px 3px 4px rgba(20, 20, 20, 0, 4);
+}
+
 .characterCard{
   text-align: center;
   max-width: 400px;
@@ -114,36 +118,26 @@ p{
     super();
     this.header = 'My app';
     this.image = "https://pm1.narvii.com/5770/c91ff789cb31cff4d78b367fdc4f933ccde1a26d_hq.jpg"
-    this.btn = 'btn';
+    this.topText = 'Shiro Emiya';
+    this.bottomText = 'This guy is dead';
+    this.description = 'Details';
   }
-
+  
   render() {
     return html`
     <div class="wholeCard">
       <div class="characterCard">
   <h2>Fate/Stay Night: Unlimited Blade Works</h2> 
   </div>
-  <!-- <button class="btn" onclick="hideText()">Details</button>
-  <button class="add">Add Stuff</button>
-  <button class="delete">Delete Stuff</button>
-  <button class="color">Color Stuff</button>
-  <button class="heading">Heading Stuff</button> -->
-  <meme-maker alt="Cat stalking a small toy" image-url="${this.image}" top-text="Shiro Emiya" bottom-text="This guy is dead"></meme-maker>
-       <div class="information">
-        <slot></slot>
-         <p>Shiro Emiya is a servant of the fate and the main character of the anime. The anime is about a holy grail war where masters summons servants to fight in battle. There are usually seven masters per holy grail war that fight in battle. Winning the holy grail war allows the winner to get one wish granted.</p>
-  <script>
-   const hideP =  document.querySelector(".information");
-   function hideText(){
-     if(hideP.style.display === "block"){
-       hideP.style.display = "none";
-     }
-     else{
-       hideP.style.display = "block";
-     }
-   };
-         </script>
-  </div>
+  <meme-maker image-url="${this.image}" top-text="${this.topText}" bottom-text="${this.bottomText}"></meme-maker>
+       <details class="information">
+        <summary>${this.description}</summary>
+          <div>
+            <ul>
+              <slot><h3>Shiro Emiya is a servant of the fate and the main character of the anime. The anime is about a holy grail war where masters summons servants to fight in battle. There are usually seven masters per holy grail war that fight in battle. Winning the holy grail war allows the winner to get one wish granted</h3></slot>
+            </ul>
+          </div>
+        </details>
 </div>
 </div>
     `;
