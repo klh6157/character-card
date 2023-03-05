@@ -7,12 +7,20 @@ class MyCard extends LitElement {
   static properties = {
     header: { type: String, attribute: 'My app' },
     image: { type: String},
+    topText: { type: String, reflect: true},
+    bottomText: { type: String, reflect: true},
+    description: { type: String},
     shadowColor: {type: Boolean, reflect: true, attribute: 'shadow-color'},
   }
 
   static styles = css`
 :host([shadow-color]) .characterCard{
-  box-shadow: 1px 2px 3px 4px rgba(20, 20, 20, 0, 4);
+  background-color: green;
+
+}
+:host{
+  display: inline-block;
+
 }
 
 .characterCard{
@@ -121,6 +129,10 @@ p{
     this.topText = 'Shiro Emiya';
     this.bottomText = 'This guy is dead';
     this.description = 'Details';
+    this.shadowColor = false;
+  }
+  toggleDetails() {
+    this.shadowRoot.querySelector('.information').toggleAttribute('open');
   }
   
   render() {

@@ -119,6 +119,7 @@
   </head>
 
   <body>
+    <button onclick="toggleDetails()" class="btn">Details</button>
     <button class="add">Add Stuff</button>
     <button class="delete">Delete Stuff</button>
     <button class="color">Color Stuff</button>
@@ -130,8 +131,10 @@
     </div>
     
     <script type="module" src="./src/my-card.js"></script>
-            
     <script>
+       function toggleDetails() {
+      document.querySelector("my-card").toggleDetails();
+       }
 
   document.querySelector('.add').addEventListener('click', function(e) {
     const duplicate = document.querySelector('my-card').cloneNode(true);
@@ -157,7 +160,16 @@
   document.querySelector('.heading').addEventListener('click', function(e){
     let heading = prompt("Any Namers");
     document.querySelector('my-card').shadowRoot.querySelector('.characterCard h2').innerText = heading;
+
   });
+  document.querySelector('my-card').addEventListener('mouseover', (e) => {
+      document.querySelector('my-card').shadowColor = true;
+    });
+
+    document.querySelector('my-card').addEventListener('mouseleave', (e) => {
+      document.querySelector('my-card').shadowColor = "";
+    });
+
     </script>
   </body>
 
