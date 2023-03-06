@@ -10,6 +10,7 @@ class MyCard extends LitElement {
     topText: { type: String, reflect: true},
     bottomText: { type: String, reflect: true},
     description: { type: String},
+    title: { type: String},
     shadowColor: {type: Boolean, reflect: true, attribute: 'shadow-color'},
   }
 
