@@ -130,6 +130,7 @@ p{
     this.bottomText = 'This guy is dead';
     this.description = 'Details';
     this.shadowColor = false;
+    this.title = 'Fate/Stay Night: Unlimited Blade Works';
   }
   toggleDetails() {
     this.shadowRoot.querySelector('.information').toggleAttribute('open');
@@ -139,7 +140,7 @@ p{
     return html`
     <div class="wholeCard">
       <div class="characterCard">
-  <h2>Fate/Stay Night: Unlimited Blade Works</h2> 
+  <h2>${this.title}</h2> 
   </div>
   <meme-maker image-url="${this.image}" top-text="${this.topText}" bottom-text="${this.bottomText}"></meme-maker>
        <details class="information">
