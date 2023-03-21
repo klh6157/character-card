@@ -5,7 +5,7 @@ const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
 
 class MyCard extends LitElement {
   static properties = {
-    header: { type: String, attribute: 'My app' },
+    header: { type: String, attribute: 'my-app' },
     image: { type: String},
     topText: { type: String, reflect: true},
     bottomText: { type: String, reflect: true},
@@ -84,21 +84,6 @@ p{
   margin: 3px;
   padding: 3px 3px;
   
-}
-.btn:hover{
-  background-color: cyan;
-}
-.add:hover{
-  background-color: cyan;
-}
-.delete:hover{
-  background-color: cyan;
-}
-.color:hover{
-  background-color: cyan;
-}
-.heading:hover{
-  background-color: cyan;
 }
 
 @media only screen and (max-width: 500px){
