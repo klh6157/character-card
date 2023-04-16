@@ -11,6 +11,7 @@ class MyCard extends LitElement {
     bottomText: { type: String, reflect: true},
     description: { type: String},
     title: { type: String},
+    detailsToggle: {type: Boolean, reflect: true, attribute: 'details-toggle'},
     shadowColor: {type: Boolean, reflect: true, attribute: 'shadow-color'},
   }
 
@@ -116,11 +117,34 @@ p{
     this.bottomText = 'This guy is dead';
     this.description = 'Details';
     this.shadowColor = false;
+    this.detailsToggle = false;
     this.title = 'Fate/Stay Night: Unlimited Blade Works';
   }
-  toggleDetails() {
-    this.shadowRoot.querySelector('.information').toggleAttribute('open');
+  
+  toggleEvent(e) {
+    if (e.target.hasAttribute('open')) {
+      this.detailsToggle = true;
+    } else {
+      this.detailsToggle = false;
+    }
   }
+  
+
+  updated(changedProperties) {
+    changedProperties.forEach((oldValue, propName) => {
+      if (propName === 'detailsToggle') {
+        this.dispatchEvent(new CustomEvent('opened-changed', {
+          composed: true,
+          bubbles: true,
+          cancelable: false,
+          detail: {
+            value: this[propName],
+      }
+    }));
+    console.log('${propName} changed. oldValue: ${oldValue}');
+  }
+});
+}
   
   render() {
     return html`
@@ -129,7 +153,7 @@ p{
   <h2>${this.title}</h2> 
   </div>
   <meme-maker image-url="${this.image}" top-text="${this.topText}" bottom-text="${this.bottomText}"></meme-maker>
-       <details class="information">
+       <details .open='${this.detailsToggle}' @toggle='${this.toggleEvent}'>
         <summary>${this.description}</summary>
           <div>
             <ul>

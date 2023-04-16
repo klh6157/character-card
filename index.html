@@ -119,7 +119,7 @@
   </head>
 
   <body>
-    <button onclick="toggleDetails()" class="btn">Details</button>
+    <button class="togglesDetail">Button</button>
     <button class="add">Add Stuff</button>
     <button class="delete">Delete Stuff</button>
     <button class="color">Color Stuff</button>
@@ -127,14 +127,38 @@
 
     <div class="cardContainer">
       <my-card>This is his information about Shiro Emiya</my-card>
-      <my-card></my-card>
     </div>
     
     <script type="module" src="./src/my-card.js"></script>
     <script>
-       function toggleDetails() {
-      document.querySelector("my-card").toggleDetails();
-       }
+
+  document.body.addEventListener('opened-changed', (e) => {
+  if(e.target === document.querySelector('my-card')){
+    console.log(e.detail.value);
+    if(e.detail.value){
+      document.querySelector('.togglesDetail').innerText = "Hide Details";
+    }
+    else{
+      document.querySelector('.togglesDetail').innerText = "Show Details";
+    }
+  }
+  console.log(document.querySelector('.togglesDetail').innerText);
+});
+
+
+    document.body.addEventListener('togglesDetail', (e) => {
+      if(document.querySelector('my-card').detailsToggle){
+        document.querySelector('my-card').forEach((item) => {
+          item.detailsToggle = false;
+        });
+      }
+      else{
+        document.querySelector('my-card').forEach((item) => {
+          item.detailsToggle = true;
+        });
+      }
+      console.log(document.querySelector('my-card').detailsToggle);
+    });
 
   document.querySelector('.add').addEventListener('click', function(e) {
     const duplicate = document.querySelector('my-card').cloneNode(true);
@@ -152,7 +176,7 @@
     
   document.querySelector('.delete').addEventListener('click', function(e){
     const deletion = document.querySelectorAll('my-card');
-    if(deletion.length !== 2){
+    if(deletion.length !== 1){
       const copy = deletion[deletion.length - 1];
       copy.remove();
     }
