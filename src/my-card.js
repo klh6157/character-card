@@ -59,27 +59,6 @@ p{
   padding: 20px;
   
 }
-.btn {
-  text-align: center;
-  margin: 3px;
-  padding: 3px 3px;
-  
-}
-.add{
- text-align: center;
-  margin: 3px;
-  padding: 3px 3px;
-}
-.delete{
-  text-align: center;
-  margin: 3px;
-  padding: 3px 3px;
-}
-.color{
-  text-align: center;
-  margin: 3px;
-  padding: 3px 3px;
-}
 .heading {
   text-align: center;
   margin: 3px;
